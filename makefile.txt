@@ -1,0 +1,21 @@
+BIN=bin/
+SRC=src/
+OBJ=obj/
+CFLAG = -o
+OFLAG = -c
+CCMD = gcc
+server:  functions client1 client2
+        gcc -o ${BIN}server ${OBJ}functions.o ${SRC}server.c
+client1:
+        gcc -o ${BIN}client1 ${OBJ}functions.o ${SRC}client1.c
+client2:
+        gcc -o ${BIN}client2 ${OBJ}functions.o ${SRC}client2.c
+functions:
+        gcc -o ${OBJ}functions.o -c ${SRC}functions.c
+
+
+clean:
+        rm ${BIN}server
+        rm ${BIN}client1
+        rm ${BIN}client2
+        rm ${OBJ}func.o
